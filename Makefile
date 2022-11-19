@@ -25,6 +25,9 @@ format:
 valgrind:
 	scripts/valgrind.sh ${TESTS_DIR}
 
+valgrind_project:
+	scripts/valgrind.sh ${DEMO_DIR}
+
 linters:
 	scripts/linters.sh
 

@@ -11,4 +11,4 @@ string(APPEND CMAKE_CXX_FLAGS " -O0")
 aux_source_directory(src SRC)
 add_library(${PROJECT_NAME} ${SRC})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include)
+target_include_directories(${PROJECT_NAME} PUBLIC include include/rbtree)
