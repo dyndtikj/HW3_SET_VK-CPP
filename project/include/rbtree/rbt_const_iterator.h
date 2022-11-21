@@ -107,7 +107,6 @@ const ConstIterator<T> ConstIterator<T>::operator--(int) {
 
 template <typename T>
 ConstIterator<T> ConstIterator<T>::operator--() {
-    ptr_ -= 1;
     this->ptr_ = this->ptr_->getPrev();
     return *this;
 }

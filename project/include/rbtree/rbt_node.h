@@ -120,7 +120,6 @@ typename RBNode<T>::node_ptr RBNode<T>::getNext() {
 
 template <typename T>
 typename RBNode<T>::node_ptr RBNode<T>::getPrev() {
-
     RBNode<T> *x = this;
     if (x->left_ != nullptr) {
         return x->left_->getMax();
