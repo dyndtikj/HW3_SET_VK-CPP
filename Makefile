@@ -1,8 +1,8 @@
 DEMO_DIR = build/hw3_set_main
 TESTS_DIR = build/tests/tests
-.PHONY: all build rebuild check test coverage clean linters valgrind
+.PHONY: all build rebuild check test coverage clean linters valgrind valgrind_project
 
-all: clean format linters build test run
+all: clean format linters build test valgrind run valgrind_project
 
 build: clean
 	scripts/build.sh

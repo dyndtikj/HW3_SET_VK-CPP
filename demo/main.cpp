@@ -233,7 +233,6 @@ namespace internal_tests {
 
 int main() {
     internal_tests::run_all();
-
     std::cout << "\nAAAA -- my set correctly works -- Hooray!" << std::endl;
     return 0;
 }

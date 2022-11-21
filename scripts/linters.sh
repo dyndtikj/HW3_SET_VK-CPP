@@ -28,7 +28,7 @@ print_header "RUN cpplint"
 check_log "cpplint ./tests/*.cpp ./project/src/*.cpp" "Can't open for reading"
 
 print_header "RUN cppcheck"
-check_log "cppcheck ./tests/*.cpp ./project/src/*.cpp --enable=all --inconclusive --error-exitcode=1 --suppress=missingIncludeSystem" "\(information\)"
+check_log "cppcheck ./tests/*.cpp ./project/src/*.cpp --enable=all --inconclusive --error-exitcode=1 --suppress=missingIncludeSystem --suppress=unusedFunction" "\(information\)"
 
 print_header "SUCCESS"
 
