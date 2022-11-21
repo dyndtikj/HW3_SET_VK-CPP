@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "**"]
+    branches: [ "master", "hw-3-dev"]
   pull_request:
-      branches: [ "master" ]
+    branches: [ "master" ]
 
 jobs:
   checks:
