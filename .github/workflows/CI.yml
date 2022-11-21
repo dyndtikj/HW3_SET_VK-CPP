@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     container: dyndtikj/cpp_gtest_linters:v0.0.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: prepare
         run: apt install clang-format -y
       - name: format
@@ -24,12 +24,12 @@ jobs:
     runs-on: ubuntu-latest
     container: dyndtikj/cpp_gtest_linters:v0.0.1
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: build
         run: make build
 
       - name: upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
            name: artifact_build
            path: build/
@@ -43,7 +43,7 @@ jobs:
         run: make test
 
       - name: upload test artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: artifact_test
           path: build/
@@ -53,10 +53,10 @@ jobs:
     container: dyndtikj/cpp_gtest_linters:v0.0.1
     needs: [unit_tests]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: get test artifact/
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v2
         with:
           name: artifact_test
           path: build/
