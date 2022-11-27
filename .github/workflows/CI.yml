@@ -47,25 +47,3 @@ jobs:
         with:
           name: artifact_test
           path: build/
-
-  valgrind_and_cov:
-    runs-on: ubuntu-latest
-    container: dyndtikj/cpp_gtest_linters:v0.0.1
-    needs: [unit_tests]
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: get test artifact/
-        uses: actions/download-artifact@v2
-        with:
-          name: artifact_test
-          path: build/
-
-      - name: prepare
-        run: apt install lcov -y
-
-      - name: coverage
-        run: make coverage
-
-      - name: valgrind
-        run: make valgrind

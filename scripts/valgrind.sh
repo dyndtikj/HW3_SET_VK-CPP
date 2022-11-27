@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TEST_FILES="./build/tests/tests"
+TEST_FILES="${1}"
 chmod +x ${TEST_FILES}
 VG_LOG="./build/valgrind.log"
 
