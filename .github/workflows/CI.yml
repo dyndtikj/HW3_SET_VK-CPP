@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master", "hw-3-dev"]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    container: dyndtikj/cpp_gtest_linters:v0.0.1
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare
+        run: apt install clang-format -y
+      - name: format
+        run: make format
+
+      - name: linters
+        run: make linters
+
+  build:
+    runs-on: ubuntu-latest
+    container: dyndtikj/cpp_gtest_linters:v0.0.1
+    steps:
+      - uses: actions/checkout@v2
+      - name: build
+        run: make build
+
+      - name: upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+           name: artifact_build
+           path: build/
+
+  unit_tests:
+    runs-on: ubuntu-latest
+    container: dyndtikj/cpp_gtest_linters:v0.0.1
+    steps:
+      - uses: actions/checkout@v2
+      - name: run tests
+        run: make test
+
+      - name: upload test artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact_test
+          path: build/
